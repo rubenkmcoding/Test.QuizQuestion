@@ -7,14 +7,30 @@ public class SubStrationQuestion implements QuizQuestion {
    private int firstNumber;
    private int secondNumber;
 
-   public SubStrationQuestion(){
-      this.firstNumber = new Random().nextInt(5) +1;
-      this.secondNumber = new Random().nextInt(10);
+   public void SubtractionQuestions() {
+      firstNumber = new Random().nextInt(50) + 1;
+      secondNumber = new Random().nextInt(50);
+      swap();
+   }
 
-      do {
-         this.firstNumber = new Random().nextInt(5) +1;
-         this.secondNumber = new Random().nextInt(10);
-      }while (secondNumber > firstNumber);
+   private void swap(){
+      if (secondNumber > firstNumber) {
+         int temp = firstNumber;
+         firstNumber = secondNumber;
+         secondNumber = temp;
+      }
+   }
+
+   @Override
+   public String getQuestion() {
+      return "What is " + firstNumber + " - " + secondNumber + "?";
+   }
+
+   @Override
+   public int getCorrectAnswer() {
+      return firstNumber - secondNumber;
+   }
+}
 
       // 2de manier
 //      if(firstNumber < secondNumber){
@@ -22,18 +38,6 @@ public class SubStrationQuestion implements QuizQuestion {
 //         firstNumber = secondNumber;
 //         secondNumber = temp;
 
-      }
 
 
-   @Override
-   public String getQuestion() {
 
-      return "wat is the sum of" + firstNumber + " + " + secondNummer;
-   }
-
-   @Override
-   public int getCorrectAnswer() {
-      return  firstNumber - secondNumber;
-
-   }
-}

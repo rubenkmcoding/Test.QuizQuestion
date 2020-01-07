@@ -4,24 +4,21 @@ import java.util.Random;
 
 public class AddItionQuestion implements QuizQuestion {
 
-    // varabele
-
     private int firstNumber;
-    private int secondNummer;
-    Random random = new Random();
+    private int secondNumber;
 
-    public AddItionQuestion(int firstNumber, int secondNummer) {
-        this.firstNumber = random.nextInt(50);
-        this.secondNummer = random.nextInt(50);
+    public void AdditionQuestions() {
+        firstNumber = new Random().nextInt(50) + 1;
+        secondNumber = new Random().nextInt(50);
     }
 
     @Override
     public String getQuestion() {
-        return "wat is the sum of" + firstNumber + " + " +secondNummer;
+        return "What is " + firstNumber + " + " + secondNumber + "?";
     }
 
     @Override
     public int getCorrectAnswer() {
-        return firstNumber + secondNummer;
+        return firstNumber + secondNumber;
     }
 }
